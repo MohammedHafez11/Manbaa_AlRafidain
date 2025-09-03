@@ -491,7 +491,7 @@ body {
 .scroll-indicator {
     position: absolute;
     bottom: 32px;
-    left: 45%;
+    left: 50%;
     transform: translateX(-50%);
     color: hsla(40, 30%, 95%, 0.7);
     font-size: 32px;
@@ -948,5 +948,539 @@ body {
     
     .product-card {
         min-width: unset;
+    }
+}
+
+
+
+/* ===== ENTRANCE SCREEN STYLES ===== */
+.entrance-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.entrance-screen.fade-out {
+    opacity: 0;
+    transform: scale(1.1);
+    pointer-events: none;
+}
+
+/* Background Effects */
+.entrance-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.stone-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        linear-gradient(45deg, transparent 40%, rgba(218, 165, 32, 0.02) 50%, transparent 60%);
+    background-size: 200px 200px, 150px 150px, 100px 100px;
+    animation: textureShift 20s linear infinite;
+}
+
+@keyframes textureShift {
+    0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+    100% { background-position: 200px 200px, -150px 150px, 100px -100px; }
+}
+
+/* Marble Particles */
+.marble-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(218, 165, 32, 0.8) 0%, rgba(255, 215, 0, 0.4) 70%, transparent 100%);
+    border-radius: 50%;
+    animation: floatParticle 15s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+    width: 4px;
+    height: 4px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    width: 6px;
+    height: 6px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.particle:nth-child(3) {
+    width: 3px;
+    height: 3px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 6s;
+}
+
+.particle:nth-child(4) {
+    width: 5px;
+    height: 5px;
+    top: 30%;
+    left: 70%;
+    animation-delay: 9s;
+}
+
+.particle:nth-child(5) {
+    width: 4px;
+    height: 4px;
+    top: 70%;
+    left: 60%;
+    animation-delay: 12s;
+}
+
+@keyframes floatParticle {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+    25% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+    50% { transform: translateY(-40px) scale(1); opacity: 0.5; }
+    75% { transform: translateY(-20px) scale(0.8); opacity: 0.7; }
+}
+
+/* Main Content */
+.entrance-content {
+    position: relative;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+/* Logo Animation */
+.entrance-logo {
+    margin-bottom: 60px;
+    animation: logoEntrance 2s ease-out;
+}
+
+@keyframes logoEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-180deg);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2) rotate(-90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.logo-container {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+}
+
+.logo-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(218, 165, 32, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulseBg 3s ease-in-out infinite;
+}
+
+@keyframes pulseBg {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.logo-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    filter: drop-shadow(0 0 20px rgba(218, 165, 32, 0.5));
+}
+
+.logo-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: conic-gradient(from 0deg, transparent, rgba(218, 165, 32, 0.4), transparent, rgba(255, 215, 0, 0.4), transparent);
+    border-radius: 50%;
+    animation: rotate 4s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Company Name with Typing Effect */
+.company-name {
+    margin-bottom: 60px;
+}
+
+.typing-text {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-content {
+    display: inline-block;
+}
+
+.cursor {
+    display: inline-block;
+    background: linear-gradient(135deg, #DAA520, #FFD700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.company-subtitle {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(245, 245, 245, 0.8);
+    animation: fadeInUp 1s ease-out 2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Interactive Stone Blocks */
+.stone-blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+    animation: fadeInUp 1s ease-out 3s both;
+}
+
+.stone-block {
+    background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+    border: 1px solid rgba(218, 165, 32, 0.3);
+    border-radius: 12px;
+    padding: 20px 15px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.stone-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.stone-block:hover::before {
+    left: 100%;
+}
+
+.stone-block:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(218, 165, 32, 0.3);
+    border-color: rgba(218, 165, 32, 0.6);
+}
+
+.block-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #f5f5f5;
+}
+
+.block-content i {
+    font-size: 24px;
+    color: #DAA520;
+    transition: all 0.3s ease;
+}
+
+.stone-block:hover .block-content i {
+    color: #FFD700;
+    transform: scale(1.2);
+}
+
+.block-content span {
+    font-family: 'Amiri', serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Enter Button */
+.enter-btn {
+    position: relative;
+    background: none;
+    border: 2px solid #DAA520;
+    border-radius: 50px;
+    padding: 16px 40px;
+    cursor: pointer;
+    overflow: hidden;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease-out 4s both;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-bg {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #DAA520, #FFD700);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.enter-btn:hover .btn-bg {
+    left: 0;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.4s;
+}
+
+.ar-text {
+    font-family: 'Amiri', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f5f5f5;
+}
+
+.en-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(245, 245, 245, 0.8);
+}
+
+.enter-btn:hover .btn-text {
+    color: #1a1a1a;
+}
+
+.enter-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(218, 165, 32, 0.4);
+}
+
+/* Button Particles */
+.btn-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.enter-btn:hover .btn-particles {
+    opacity: 1;
+}
+
+.btn-particles span {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkle 1s ease-out infinite;
+}
+
+.btn-particles span:nth-child(1) {
+    width: 4px;
+    height: 4px;
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.btn-particles span:nth-child(2) {
+    width: 3px;
+    height: 3px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 0.3s;
+}
+
+.btn-particles span:nth-child(3) {
+    width: 2px;
+    height: 2px;
+    top: 80%;
+    left: 40%;
+    animation-delay: 0.6s;
+}
+
+@keyframes sparkle {
+    0% { transform: scale(0); opacity: 1; }
+    50% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    width: 200px;
+    height: 4px;
+    background: rgba(218, 165, 32, 0.2);
+    border-radius: 2px;
+    margin: 0 auto;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out 5s both;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #DAA520, #FFD700, #DAA520);
+    border-radius: 2px;
+    animation: loadProgress 3s ease-in-out 5.5s both;
+}
+
+@keyframes loadProgress {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Floating Elements */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.float-element {
+    position: absolute;
+    font-size: 20px;
+    animation: floatAround 8s ease-in-out infinite;
+    animation-delay: var(--delay);
+    top: var(--y);
+    left: var(--x);
+    opacity: 0.6;
+}
+
+@keyframes floatAround {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-20px) rotate(90deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-40px) rotate(180deg);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translateY(-20px) rotate(270deg);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stone-blocks {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .entrance-content {
+        padding: 0 15px;
+    }
+    
+    .logo-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .ar-text {
+        font-size: 16px;
+    }
+    
+    .en-text {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stone-blocks {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .stone-block {
+        padding: 15px 10px;
+    }
+    
+    .block-content i {
+        font-size: 20px;
+    }
+    
+    .block-content span {
+        font-size: 12px;
     }
 }

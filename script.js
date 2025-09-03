@@ -133,6 +133,61 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileNav.classList.remove('active');
         }
     });
+
+
+    const typingElement = document.querySelector('.text-content');
+    const fullText = 'شركة منبع الرافدين الذهبي';
+    let currentText = '';
+    let letterIndex = 0;
+    
+    function typeWriter() {
+        if (letterIndex < fullText.length) {
+            currentText += fullText[letterIndex];
+            typingElement.textContent = currentText;
+            letterIndex++;
+            setTimeout(typeWriter, 100);
+        }
+    }
+    
+    // Start typing after 1 second
+    setTimeout(typeWriter, 1000);
+    
+    // Stone blocks hover effects
+    const stoneBlocks = document.querySelectorAll('.stone-block');
+    stoneBlocks.forEach((block, index) => {
+        block.addEventListener('mouseenter', function() {
+            this.style.animationDelay = '0s';
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'fadeInUp 0.3s ease-out';
+            }, 10);
+        });
+    });
+    
+    // Enter button functionality
+    const enterBtn = document.getElementById('enterBtn');
+    const entranceScreen = document.getElementById('entrance-screen');
+    
+    enterBtn.addEventListener('click', function() {
+        // Add exit animation
+        entranceScreen.classList.add('fade-out');
+        
+        // Remove entrance screen after animation
+        setTimeout(() => {
+            entranceScreen.style.display = 'none';
+            document.body.style.overflow = 'visible';
+        }, 1000);
+    });
+    
+    // Auto hide after 10 seconds if no interaction
+    setTimeout(() => {
+        if (!entranceScreen.classList.contains('fade-out')) {
+            enterBtn.click();
+        }
+    }, 10000);
+    
+    // Prevent scrolling while entrance screen is active
+    document.body.style.overflow = 'hidden';
     
    
 });

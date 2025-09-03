@@ -25,6 +25,95 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+    <div id="entrance-screen" class="entrance-screen">
+    <!-- Animated Background -->
+    <div class="entrance-bg">
+        <div class="marble-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="stone-texture"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="entrance-content">
+        <!-- Logo Animation -->
+        <div class="entrance-logo">
+            <div class="logo-container">
+                <div class="logo-bg"></div>
+                <img src="img/logo.png" alt="منبع الرافدين الذهبي" class="logo-image">
+                <div class="logo-glow"></div>
+            </div>
+        </div>
+        
+        <!-- Company Name with Typing Effect -->
+        <div class="company-name">
+            <h1 class="typing-text" data-text="شركة منبع الرافدين الذهبي">
+                <span class="text-content"></span>
+                <span class="cursor">|</span>
+            </h1>
+            <p class="company-subtitle">للتجارة العامة المحدودة المسؤولية</p>
+        </div>
+        
+        <!-- Interactive Stone Blocks -->
+        <div class="stone-blocks">
+            <div class="stone-block" data-reveal="رخام">
+                <div class="block-content">
+                    <i class="fas fa-gem"></i>
+                    <span>الرخام</span>
+                </div>
+            </div>
+            <div class="stone-block" data-reveal="بورسلين">
+                <div class="block-content">
+                    <i class="fas fa-mosque"></i>
+                    <span>البورسلين</span>
+                </div>
+            </div>
+            <div class="stone-block" data-reveal="تراييش">
+                <div class="block-content">
+                    <i class="fas fa-crown"></i>
+                    <span>التراييش</span>
+                </div>
+            </div>
+            <div class="stone-block" data-reveal="آيات">
+                <div class="block-content">
+                    <i class="fas fa-quran"></i>
+                    <span>الآيات</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Enter Button -->
+        <button class="enter-btn" id="enterBtn">
+            <span class="btn-bg"></span>
+            <span class="btn-text">
+                <span class="ar-text">ادخل إلى عالم الفخامة</span>
+                <span class="en-text">Enter the World of Luxury</span>
+            </span>
+            <div class="btn-particles">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="float-element" style="--delay: 0s; --x: 10%; --y: 20%;">✨</div>
+        <div class="float-element" style="--delay: 1s; --x: 80%; --y: 30%;">💎</div>
+        <div class="float-element" style="--delay: 2s; --x: 15%; --y: 70%;">🏛️</div>
+        <div class="float-element" style="--delay: 3s; --x: 85%; --y: 60%;">👑</div>
+    </div>
+</div>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
