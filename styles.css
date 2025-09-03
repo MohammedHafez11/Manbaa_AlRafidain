@@ -491,8 +491,11 @@ body {
 .scroll-indicator {
     position: absolute;
     bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 40px; /* Fixed width to center properly */
+    text-align: center;
     color: hsla(40, 30%, 95%, 0.7);
     font-size: 32px;
 }
