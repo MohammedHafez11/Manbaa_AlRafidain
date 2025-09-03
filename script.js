@@ -99,12 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'translateY(32px)' : 'translateY(0)';
         });
     });
-    
-    
-    // ===== PARALLAX EFFECT FOR HERO =====
-    
-    
-    
+
     
     // ===== SCROLL TO TOP FUNCTIONALITY =====
     let scrollToTopBtn = document.createElement('button');

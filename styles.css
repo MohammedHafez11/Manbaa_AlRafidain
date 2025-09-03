@@ -491,7 +491,7 @@ body {
 .scroll-indicator {
     position: absolute;
     bottom: 32px;
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%);
     color: hsla(40, 30%, 95%, 0.7);
     font-size: 32px;
