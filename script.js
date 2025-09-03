@@ -56,25 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ===== SCROLL ANIMATIONS =====
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.product-card, .feature-card, .contact-card, .about-content');
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
     
     // ===== HERO SCROLL INDICATOR =====
     const scrollIndicator = document.querySelector('.scroll-indicator');
